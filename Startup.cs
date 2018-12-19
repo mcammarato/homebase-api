@@ -36,7 +36,7 @@ namespace web_api_test
             }
                      
             app.UseCors(builder =>
-                builder.WithOrigins("http://localhost:6300")
+                builder.WithOrigins("http://localhost:6300", "https://cammobase.herokuapp.com/")
                     .AllowAnyHeader()
                 );
             app.UseMvc();   
