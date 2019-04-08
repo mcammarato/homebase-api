@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using web_api_test.Models;
 
 namespace web_api_test.Controllers
 {
@@ -14,11 +16,11 @@ namespace web_api_test.Controllers
         {
             var client = new WebClient();
 
-            string weatherUrl = "http://api.wunderground.com/api/bb2eae0cb8e12806/conditions/q/NJ/Caldwell.json";
+            string weatherUrl = "https://api.darksky.net/forecast/45a89ed8f8357c162a4fd38c0cabdac5/40.840933,-74.301815";
 
             var weatherJson = client.DownloadString(weatherUrl);
 
             return weatherJson;
-        }
+        }        
     }
 }

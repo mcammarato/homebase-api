@@ -3,6 +3,7 @@ using System.Net;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Globalization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace web_api_test.Controllers
@@ -12,9 +13,12 @@ namespace web_api_test.Controllers
     {                
         public object Get()
         {
-            var client = new WebClient();
+            var client = new WebClient();            
 
-            string statsUrl = "http://stats.nba.com/js/data/widgets/home_daily.json";
+            var date = DateTime.Now.ToString("yyyyMMdd"); 
+
+            //string statsUrl = string.Format("http://data.nba.net/10s/prod/v1/{0}/scoreboard.json", date);                                   
+            string statsUrl = string.Format("http://data.nba.net/10s/prod/v1/20190301/scoreboard.json", date);                                   
 
             var statsJson = client.DownloadString(statsUrl);
 
